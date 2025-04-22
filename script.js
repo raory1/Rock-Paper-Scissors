@@ -16,6 +16,11 @@ function getHumanChoice() {
     return humanChoice
 }
 
+function checkGameWinner() {
+    gameWinnerMsg = (computerScore > humanScore ? "Computer won the game! Try again" : "You won the game! Congratulations.")
+    console.log(gameWinnerMsg)
+}
+
 function playRound(humanChoice, computerChoice) {
     if (humanChoice == computerChoice) {
         console.log("tie")
@@ -33,10 +38,15 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-let humanSelection = getHumanChoice()
-let computerSelection = getComputerChoice()
+function playGame() {
+    for (i = 0; i < 5; i++) {
+        let humanSelection = getHumanChoice()
+        let computerSelection = getComputerChoice()
+        console.log(`Computer chooses: ${computerSelection}`)
+        console.log(`You choose: ${humanSelection}`)
+        playRound(computerSelection, humanSelection)
+    }
+    checkGameWinner()
+}
 
-
-console.log(`Computer chooses: ${computerSelection}`)
-console.log(`You choose: ${humanSelection}`)
-playRound(computerSelection, humanSelection)
+playGame()

@@ -17,7 +17,7 @@ function getHumanChoice() {
 }
 
 function checkGameWinner() {
-    gameWinnerMsg = (computerScore > humanScore ? "Computer won the game! Try again" : "You won the game! Congratulations.")
+    gameWinnerMsg = (computerScore > humanScore ? "Computer won the game! Try again." : "You won the game! Congratulations.")
     console.log(gameWinnerMsg)
 }
 
@@ -44,7 +44,7 @@ function playGame() {
         let computerSelection = getComputerChoice()
         console.log(`Computer chooses: ${computerSelection}`)
         console.log(`You choose: ${humanSelection}`)
-        playRound(computerSelection, humanSelection)
+        playRound(humanSelection, computerSelection)
     }
     checkGameWinner()
 }

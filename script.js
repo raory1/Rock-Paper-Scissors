@@ -33,10 +33,10 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-let humanChoice = getHumanChoice()
-let computerChoice = getComputerChoice()
+let humanSelection = getHumanChoice()
+let computerSelection = getComputerChoice()
 
 
-console.log(`Computer chooses: ${computerChoice}`)
-console.log(`You choose: ${humanChoice}`)
-playRound(computerChoice, humanChoice)
+console.log(`Computer chooses: ${computerSelection}`)
+console.log(`You choose: ${humanSelection}`)
+playRound(computerSelection, humanSelection)

@@ -59,17 +59,18 @@ if (container) {
 container
 container.addEventListener('click', (e) => {
     let target = e.target
+    let playerSelection = ""
 
     switch (target.id) {
         case 'rock':
-            console.log('rock');
+            playerSelection = "rock"
             break;
         case 'paper':
-            console.log('paper')
+            playerSelection = "paper"
             break;
         case 'scissors':
-            console.log('scissors')
+            playerSelection = "scissors"
             break;
     }
-    playRound(target.id, getComputerChoice())
+    playRound(playerSelection, getComputerChoice())
 })

@@ -39,8 +39,8 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function playGame() {
-    for (i = 0; i < 5; i++) {
-        let humanSelection = getHumanChoice()
+    for (i = 0; i < 1; i++) {
+        //let humanSelection = getHumanChoice()
         let computerSelection = getComputerChoice()
         console.log(`Computer chooses: ${computerSelection}`)
         console.log(`You choose: ${humanSelection}`)
@@ -49,4 +49,27 @@ function playGame() {
     checkGameWinner()
 }
 
-playGame()
+//playGame()
+
+const container = document.querySelector("#options")
+if (container) {
+    console.log(container)
+}
+
+container
+container.addEventListener('click', (e) => {
+    let target = e.target
+
+    switch (target.id) {
+        case 'rock':
+            console.log('rock');
+            break;
+        case 'paper':
+            console.log('paper')
+            break;
+        case 'scissors':
+            console.log('scissors')
+            break;
+    }
+    playRound(target.id, getComputerChoice())
+})

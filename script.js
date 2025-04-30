@@ -23,17 +23,17 @@ function checkGameWinner() {
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice == computerChoice) {
-        console.log("tie")
+        result.innerText = "Oops! It's a tie!"
     }
     else if
         ((humanChoice == "rock" && computerChoice == "scissors") ||
         (humanChoice == "scissors" && computerChoice == "paper") ||
         (humanChoice == "paper" && computerChoice == "rock")) {
         humanScore++
-        console.log(`${humanChoice} beats ${computerChoice}. You won!`)
+        result.innerText = `${humanChoice} beats ${computerChoice}. You won!`
     }
     else {
-        console.log(`${computerChoice} beats ${humanChoice}. You lose!`)
+        result.innerText = `${computerChoice} beats ${humanChoice}. You lose!`
         computerScore++
     }
 }
@@ -51,12 +51,13 @@ function playGame() {
 
 //playGame()
 
+
+
 const container = document.querySelector("#options")
 if (container) {
     console.log(container)
 }
 
-container
 container.addEventListener('click', (e) => {
     let target = e.target
     let playerSelection = ""
@@ -74,3 +75,8 @@ container.addEventListener('click', (e) => {
     }
     playRound(playerSelection, getComputerChoice())
 })
+
+const resultContainer = document.querySelector("#result-container")
+const result = document.createElement("p")
+result.innerText = "adasdadsa"
+resultContainer.append(result)

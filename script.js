@@ -2,6 +2,8 @@ let playerScore = 0
 let computerScore = 0
 const container = document.querySelector("#options")
 const resultEl = document.querySelector("#round-msg")
+const playerScoreEl = document.querySelector("#player-score")
+const computerScoreEl = document.querySelector("#computer-score")
 
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3)
@@ -52,8 +54,8 @@ function playRound(humanChoice, computerChoice) {
         resultEl.innerText = `${computerChoice} beats ${humanChoice}. You lose!`
         computerScore++
     }
-    resultEl.innerText = `${resultEl.innerText} PC Score: ${computerScore} Your score: ${playerScore}`
-
+    playerScoreEl.innerText = `Jogador: ${playerScore}`
+    computerScoreEl.innerText = `Computador: ${computerScore}`
 }
 
 

@@ -1,5 +1,7 @@
 let playerScore = 0
 let computerScore = 0
+const container = document.querySelector("#options")
+const resultEl = document.querySelector("#round-msg")
 
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3)
@@ -11,31 +13,49 @@ function getComputerChoice() {
         return "scissors"
 }
 
-function checkGameWinner() {
-    gameWinnerMsg = (computerScore > playerScore ? "Computer won the game! Try again." : "You won the game! Congratulations.")
-    console.log(gameWinnerMsg)
+function endGame() {
+    //disableGameButtons()
+    //showRestartButton()
+    const winner = getWinner()
+    displayWinner(winner)
+}
+
+function displayWinner(winner) {
+    let winnerMsg = ""
+
+    if (winner == "player") 
+        winnerMsg = "You won the game! Congratulations."  
+    else 
+        winnerMsg = "Computer won the game! Try again."
+
+    resultEl.innerText = winnerMsg
+    console.log(winnerMsg)
+}
+
+function getWinner() {
+    winner = playerScore > computerScore ? "player" : "computer"
+    return winner
 }
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice == computerChoice) {
-        resultRound.innerText = "Oops! It's a tie!"
+        resultEl.innerText = "Oops! It's a tie!"
     }
     else if
         ((humanChoice == "rock" && computerChoice == "scissors") ||
         (humanChoice == "scissors" && computerChoice == "paper") ||
         (humanChoice == "paper" && computerChoice == "rock")) {
         playerScore++
-        resultRound.innerText = `${humanChoice} beats ${computerChoice}. You won!`
+        resultEl.innerText = `${humanChoice} beats ${computerChoice}. You won!`
     }
     else {
-        resultRound.innerText = `${computerChoice} beats ${humanChoice}. You lose!`
+        resultEl.innerText = `${computerChoice} beats ${humanChoice}. You lose!`
         computerScore++
     }
-    resultRound.innerText = `${resultRound.innerText} PC Score: ${computerScore} Your score: ${playerScore}`
+    resultEl.innerText = `${resultEl.innerText} PC Score: ${computerScore} Your score: ${playerScore}`
 
 }
 
-const container = document.querySelector("#options")
 
 container.addEventListener('click', (e) => {
     let target = e.target
@@ -53,14 +73,10 @@ container.addEventListener('click', (e) => {
             playerSelection = "scissors"
             break;
     }
+
     if (playerScore < 5 && computerScore < 5) {
         playRound(playerSelection, computerSelection)
     }
     else
-        checkGameWinner()
+        endGame()
 })
-
-
-const resultContainer = document.querySelector("#result-container")
-const resultRound = document.createElement("p")
-resultContainer.append(resultRound)

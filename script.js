@@ -16,7 +16,7 @@ function getComputerChoice() {
         return "scissors"
 }
 
-function disableGameButtons(){
+function disableGameButtons() {
     buttons.forEach(button => {
         button.disabled = true
     })
@@ -66,26 +66,26 @@ function playRound(humanChoice, computerChoice) {
     computerScoreEl.innerText = `Computador: ${computerScore}`
 }
 
-container.addEventListener('click', (e) => {
-    let target = e.target
-    let playerSelection = ""
-    let computerSelection = getComputerChoice()
+buttons.forEach(button =>
+    button.addEventListener('click', (e) => {
+        let playerSelection = e.target.id
+        let computerSelection = getComputerChoice()
 
-    switch (target.id) {
-        case 'rock':
-            playerSelection = "rock"
-            break;
-        case 'paper':
-            playerSelection = "paper"
-            break;
-        case 'scissors':
-            playerSelection = "scissors"
-            break;
-    }
+        switch (playerSelection) {
+            case 'rock':
+                playerSelection = "rock"
+                break;
+            case 'paper':
+                playerSelection = "paper"
+                break;
+            case 'scissors':
+                playerSelection = "scissors"
+                break;
+        }
 
-    playRound(playerSelection, computerSelection)
+        playRound(playerSelection, computerSelection)
 
-    if (playerScore >= 5 || computerScore >= 5) {
-        endGame()
-    }
-})
+        if (playerScore >= 5 || computerScore >= 5) {
+            endGame()
+        }
+    }))

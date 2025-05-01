@@ -25,9 +25,9 @@ function endGame() {
 function displayWinner(winner) {
     let winnerMsg = ""
 
-    if (winner == "player") 
-        winnerMsg = "You won the game! Congratulations."  
-    else 
+    if (winner == "player")
+        winnerMsg = "You won the game! Congratulations."
+    else
         winnerMsg = "Computer won the game! Try again."
 
     resultEl.innerText = winnerMsg
@@ -35,7 +35,7 @@ function displayWinner(winner) {
 }
 
 function getWinner() {
-    winner = playerScore > computerScore ? "player" : "computer"
+    const winner = playerScore > computerScore ? "player" : "computer"
     return winner
 }
 
@@ -54,10 +54,10 @@ function playRound(humanChoice, computerChoice) {
         resultEl.innerText = `${computerChoice} beats ${humanChoice}. You lose!`
         computerScore++
     }
+
     playerScoreEl.innerText = `Jogador: ${playerScore}`
     computerScoreEl.innerText = `Computador: ${computerScore}`
 }
-
 
 container.addEventListener('click', (e) => {
     let target = e.target
@@ -76,9 +76,9 @@ container.addEventListener('click', (e) => {
             break;
     }
 
-    if (playerScore < 5 && computerScore < 5) {
-        playRound(playerSelection, computerSelection)
-    }
-    else
+    playRound(playerSelection, computerSelection)
+
+    if (playerScore >= 5 || computerScore >= 5) {
         endGame()
+    }
 })

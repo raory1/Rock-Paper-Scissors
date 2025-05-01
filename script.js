@@ -1,6 +1,7 @@
 let playerScore = 0
 let computerScore = 0
 const container = document.querySelector("#options")
+const buttons = container.querySelectorAll("button")
 const resultEl = document.querySelector("#round-msg")
 const playerScoreEl = document.querySelector("#player-score")
 const computerScoreEl = document.querySelector("#computer-score")
@@ -15,8 +16,14 @@ function getComputerChoice() {
         return "scissors"
 }
 
+function disableGameButtons(){
+    buttons.forEach(button => {
+        button.disabled = true
+    })
+}
+
 function endGame() {
-    //disableGameButtons()
+    disableGameButtons()
     //showRestartButton()
     const winner = getWinner()
     displayWinner(winner)

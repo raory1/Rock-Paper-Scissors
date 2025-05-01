@@ -1,4 +1,4 @@
-let humanScore = 0
+let playerScore = 0
 let computerScore = 0
 
 function getComputerChoice() {
@@ -11,56 +11,36 @@ function getComputerChoice() {
         return "scissors"
 }
 
-function getHumanChoice() {
-    let humanChoice = prompt().toLowerCase()
-    return humanChoice
-}
-
 function checkGameWinner() {
-    gameWinnerMsg = (computerScore > humanScore ? "Computer won the game! Try again." : "You won the game! Congratulations.")
+    gameWinnerMsg = (computerScore > playerScore ? "Computer won the game! Try again." : "You won the game! Congratulations.")
     console.log(gameWinnerMsg)
 }
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice == computerChoice) {
-        result.innerText = "Oops! It's a tie!"
+        resultRound.innerText = "Oops! It's a tie!"
     }
     else if
         ((humanChoice == "rock" && computerChoice == "scissors") ||
         (humanChoice == "scissors" && computerChoice == "paper") ||
         (humanChoice == "paper" && computerChoice == "rock")) {
-        humanScore++
-        result.innerText = `${humanChoice} beats ${computerChoice}. You won!`
+        playerScore++
+        resultRound.innerText = `${humanChoice} beats ${computerChoice}. You won!`
     }
     else {
-        result.innerText = `${computerChoice} beats ${humanChoice}. You lose!`
+        resultRound.innerText = `${computerChoice} beats ${humanChoice}. You lose!`
         computerScore++
     }
+    resultRound.innerText = `${resultRound.innerText} PC Score: ${computerScore} Your score: ${playerScore}`
+
 }
-
-function playGame() {
-    for (i = 0; i < 1; i++) {
-        //let humanSelection = getHumanChoice()
-        let computerSelection = getComputerChoice()
-        console.log(`Computer chooses: ${computerSelection}`)
-        console.log(`You choose: ${humanSelection}`)
-        playRound(humanSelection, computerSelection)
-    }
-    checkGameWinner()
-}
-
-//playGame()
-
-
 
 const container = document.querySelector("#options")
-if (container) {
-    console.log(container)
-}
 
 container.addEventListener('click', (e) => {
     let target = e.target
     let playerSelection = ""
+    let computerSelection = getComputerChoice()
 
     switch (target.id) {
         case 'rock':
@@ -73,10 +53,14 @@ container.addEventListener('click', (e) => {
             playerSelection = "scissors"
             break;
     }
-    playRound(playerSelection, getComputerChoice())
+    if (playerScore < 5 && computerScore < 5) {
+        playRound(playerSelection, computerSelection)
+    }
+    else
+        checkGameWinner()
 })
 
+
 const resultContainer = document.querySelector("#result-container")
-const result = document.createElement("p")
-result.innerText = "adasdadsa"
-resultContainer.append(result)
+const resultRound = document.createElement("p")
+resultContainer.append(resultRound)

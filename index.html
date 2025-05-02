@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 
@@ -12,20 +14,21 @@
     <header></header>
     <main>
         <h1>Rock, paper & Scissors</h1>
-        <div>
+        <div id="choices-container">
             <div>
-                <img src="assets/img/paper 1.svg" />
+                <img src="assets/img/Rectangle 18.png" />
+                <p id="player-score">Jogador: 0</p>
+
             </div>
             <div>
-                <img src="assets/img/paper 1.svg" />
+                <img src="assets/img/Rectangle 18.png" />
+                <p id="computer-score">Computador: 0</p>
             </div>
         </div>
-        <div id="result-container">
-            <p id="round-msg"></p>
-            <p id="player-score">Jogador: 0</p>
-            <p id="computer-score">Computador: 0</p>
+        <div id="scoreboard">
+            <p id="round-msg">choose your weapon</p>
         </div>
-        <div id="options">
+        <div id="game-options">
             <button id="rock"><img src="assets/img/Simplification.svg"></button>
             <button id="paper"><img src="assets/img/paper 1.svg"></button>
             <button id="scissors"><img src="assets/img/scissors 1.svg"></button>

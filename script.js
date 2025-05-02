@@ -1,6 +1,6 @@
 let playerScore = 0
 let computerScore = 0
-const container = document.querySelector("#options")
+const container = document.querySelector("#game-options")
 const buttons = container.querySelectorAll("button")
 const resultEl = document.querySelector("#round-msg")
 const playerScoreEl = document.querySelector("#player-score")
@@ -68,7 +68,7 @@ function playRound(humanChoice, computerChoice) {
 
 buttons.forEach(button =>
     button.addEventListener('click', (e) => {
-        let playerSelection = e.target.id
+        let playerSelection = e.currentTarget.id
         let computerSelection = getComputerChoice()
 
         switch (playerSelection) {

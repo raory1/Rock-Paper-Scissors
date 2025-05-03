@@ -46,8 +46,8 @@ function restartGame() {
     computerScore = 0
     playerScoreEl.innerText = `Jogador: ${playerScore}`
     computerScoreEl.innerText = `Computador: ${computerScore}`
-    computerImgEl.src = "assets/img/Rectangle 18.png"
-    playerImgEl.src = "assets/img/Rectangle 18.png"
+    computerImgEl.src = "assets/img/default.png"
+    playerImgEl.src = "assets/img/default.png"
     modal.classList.remove('active')
 }
 

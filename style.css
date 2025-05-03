@@ -79,6 +79,13 @@ footer {
     margin: 0px 50px 0px 50px;
 }
 
+footer a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px
+}
+
 #modal-container {
     position: fixed;
     top: 0;

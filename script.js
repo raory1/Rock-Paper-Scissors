@@ -8,6 +8,7 @@ const playerImgEl = document.querySelector("#player img")
 const computerScoreEl = document.querySelector("#computer-score")
 const computerImgEl = document.querySelector("#computer img")
 const restartBtn = document.querySelector("#restart")
+const modal = document.querySelector("#modal-container")
 
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3)
@@ -37,10 +38,12 @@ function restartGame() {
     computerScore = 0
     playerScoreEl.innerText = `Jogador: ${playerScore}`
     computerScoreEl.innerText = `Computador: ${computerScore}`
+    modal.classList.remove('active')
 }
 
 function endGame() {
     toggleGameButtons()
+    modal.classList.add('active')
     //showRestartButton()
     const winner = getWinner()
     displayWinner(winner)

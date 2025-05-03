@@ -7,6 +7,7 @@ const playerScoreEl = document.querySelector("#player-score")
 const playerImgEl = document.querySelector("#player img")
 const computerScoreEl = document.querySelector("#computer-score")
 const computerImgEl = document.querySelector("#computer img")
+const restartBtn = document.querySelector("#restart")
 
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3)
@@ -24,14 +25,22 @@ function getComputerChoice() {
     }
 }
 
-function disableGameButtons() {
+function toggleGameButtons() {
     buttons.forEach(button => {
-        button.disabled = true
+        button.disabled = !button.disabled
     })
 }
 
+function restartGame() {
+    toggleGameButtons()
+    playerScore = 0
+    computerScore = 0
+    playerScoreEl.innerText = `Jogador: ${playerScore}`
+    computerScoreEl.innerText = `Computador: ${computerScore}`
+}
+
 function endGame() {
-    disableGameButtons()
+    toggleGameButtons()
     //showRestartButton()
     const winner = getWinner()
     displayWinner(winner)
@@ -100,3 +109,7 @@ buttons.forEach(button =>
             endGame()
         }
     }))
+
+restartBtn.addEventListener('click', (e) => {
+    restartGame()
+})

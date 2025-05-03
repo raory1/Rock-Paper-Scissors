@@ -26,14 +26,20 @@ function getComputerChoice() {
     }
 }
 
-function toggleGameButtons() {
+function enableGameButtons() {
     buttons.forEach(button => {
-        button.disabled = !button.disabled
+        button.disabled = false
+    })
+}
+
+function disableGameButtons() {
+    buttons.forEach(button => {
+        button.disabled = true
     })
 }
 
 function restartGame() {
-    toggleGameButtons()
+    enableGameButtons()
     playerScore = 0
     computerScore = 0
     playerScoreEl.innerText = `Jogador: ${playerScore}`
@@ -42,7 +48,7 @@ function restartGame() {
 }
 
 function endGame() {
-    toggleGameButtons()
+    disableGameButtons()
     modal.classList.add('active')
     //showRestartButton()
     const winner = getWinner()
@@ -109,7 +115,9 @@ buttons.forEach(button =>
         playRound(playerSelection, computerSelection)
 
         if (playerScore >= 5 || computerScore >= 5) {
-            endGame()
+            setTimeout(() => {
+                endGame()
+            }, 500)
         }
     }))
 

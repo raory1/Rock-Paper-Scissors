@@ -44,8 +44,8 @@ function restartGame() {
     enableGameButtons()
     playerScore = 0
     computerScore = 0
-    playerScoreEl.innerText = `Jogador: ${playerScore}`
-    computerScoreEl.innerText = `Computador: ${computerScore}`
+    playerScoreEl.innerText = `Player: ${playerScore}`
+    computerScoreEl.innerText = `Computer: ${computerScore}`
     computerImgEl.src = "assets/img/default.png"
     playerImgEl.src = "assets/img/default.png"
     modal.classList.remove('active')
@@ -94,8 +94,8 @@ function playRound(humanChoice, computerChoice) {
         computerScore++
     }
 
-    playerScoreEl.innerText = `Jogador: ${playerScore}`
-    computerScoreEl.innerText = `Computador: ${computerScore}`
+    playerScoreEl.innerText = `Player: ${playerScore}`
+    computerScoreEl.innerText = `Computer: ${computerScore}`
 }
 
 buttons.forEach(button =>

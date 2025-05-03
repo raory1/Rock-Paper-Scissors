@@ -117,7 +117,7 @@ buttons.forEach(button =>
         if (playerScore >= 5 || computerScore >= 5) {
             setTimeout(() => {
                 endGame()
-            }, 500)
+            }, 300)
         }
     }))
 

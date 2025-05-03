@@ -9,6 +9,8 @@ const computerScoreEl = document.querySelector("#computer-score")
 const computerImgEl = document.querySelector("#computer img")
 const restartBtn = document.querySelector("#restart")
 const modal = document.querySelector("#modal-container")
+const endGameTitle = document.querySelector("#end-game-title")
+const endGameText = document.querySelector("#end-game-text")
 
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3)
@@ -44,6 +46,8 @@ function restartGame() {
     computerScore = 0
     playerScoreEl.innerText = `Jogador: ${playerScore}`
     computerScoreEl.innerText = `Computador: ${computerScore}`
+    computerImgEl.src = "assets/img/Rectangle 18.png"
+    playerImgEl.src = "assets/img/Rectangle 18.png"
     modal.classList.remove('active')
 }
 
@@ -51,22 +55,22 @@ function endGame() {
     disableGameButtons()
     //showRestartButton()
     const winner = getWinner()
-    displayWinner(winner)
+    updateModalContent(winner)
     setTimeout(() => {
         modal.classList.add('active')
     }, 500)
 }
 
-function displayWinner(winner) {
+function updateModalContent(winner) {
     let winnerMsg = ""
-
-    if (winner == "player")
-        winnerMsg = "You won the game! Congratulations."
-    else
-        winnerMsg = "Computer won the game! Try again."
-
-    resultEl.innerText = winnerMsg
-    console.log(winnerMsg)
+    if (winner == "player") {
+        endGameTitle.innerText = "You won!"
+        endGameText.innerText = "You're the champion this time!"
+    }
+    else {
+        endGameTitle.innerText = "Game over"
+        endGameText.innerText = "Crushed! Want revenge?"
+    }
 }
 
 function getWinner() {

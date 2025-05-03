@@ -4,16 +4,24 @@ const container = document.querySelector("#game-options")
 const buttons = container.querySelectorAll("button")
 const resultEl = document.querySelector("#round-msg")
 const playerScoreEl = document.querySelector("#player-score")
+const playerImgEl = document.querySelector("#player img")
 const computerScoreEl = document.querySelector("#computer-score")
+const computerImgEl = document.querySelector("#computer img")
 
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3)
-    if (computerChoice == 0)
+    if (computerChoice == 0) {
+        computerImgEl.src = "assets/img/rock-choice.svg"
         return "rock"
-    else if (computerChoice == 1)
+    }
+    else if (computerChoice == 1) {
+        computerImgEl.src = "assets/img/paper-choice.svg"
         return "paper"
-    else
+    }
+    else {
+        computerImgEl.src = "assets/img/scissors-choice.svg"
         return "scissors"
+    }
 }
 
 function disableGameButtons() {
@@ -74,12 +82,15 @@ buttons.forEach(button =>
         switch (playerSelection) {
             case 'rock':
                 playerSelection = "rock"
+                playerImgEl.src = "assets/img/rock-choice.svg"
                 break;
             case 'paper':
                 playerSelection = "paper"
+                playerImgEl.src = "assets/img/paper-choice.svg"
                 break;
             case 'scissors':
                 playerSelection = "scissors"
+                playerImgEl.src = "assets/img/scissors-choice.svg"
                 break;
         }
 

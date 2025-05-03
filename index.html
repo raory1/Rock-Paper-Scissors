@@ -1,12 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
+
 <body>
-    
+    <header></header>
+    <main>
+        <h1>Rock, paper & Scissors</h1>
+        <div id="choices-container">
+            <div id="player">
+                <img src="assets/img/Rectangle 18.png" />
+                <p id="player-score">Player: 0</p>
+
+            </div>
+            <div id="computer">
+                <img src="assets/img/Rectangle 18.png" />
+                <p id="computer-score">Computer: 0</p>
+            </div>
+        </div>
+        <div id="scoreboard">
+            <p id="round-msg">choose your weapon</p>
+        </div>
+        <div id="game-options">
+            <button id="rock"><img src="assets/img/Simplification.svg"></button>
+            <button id="paper"><img src="assets/img/paper 1.svg"></button>
+            <button id="scissors"><img src="assets/img/scissors 1.svg"></button>
+        </div>
+    </main>
+    <footer>
+        <a href="https://github.com/raory1/Rock-Paper-Scissors">
+            <img src="assets/icons/mdi_github.svg" />
+            <p>Raory</p>
+        </a>
+    </footer>
+    <div id="modal-container">
+        <div id="modal">
+            <p id="end-game-title">Game over</p>
+            <p id="end-game-text">Wanna revenge?</p>
+            <button id="restart"><img src="assets/img/restart.svg" />Play again</button>
+        </div>
+    </div>
 </body>
+
 </html>

@@ -49,10 +49,12 @@ function restartGame() {
 
 function endGame() {
     disableGameButtons()
-    modal.classList.add('active')
     //showRestartButton()
     const winner = getWinner()
     displayWinner(winner)
+    setTimeout(() => {
+        modal.classList.add('active')
+    }, 500)
 }
 
 function displayWinner(winner) {
@@ -115,9 +117,7 @@ buttons.forEach(button =>
         playRound(playerSelection, computerSelection)
 
         if (playerScore >= 5 || computerScore >= 5) {
-            setTimeout(() => {
-                endGame()
-            }, 300)
+            endGame()
         }
     }))
 

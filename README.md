@@ -2,7 +2,7 @@
 
 A simple interactive Rock, Paper, Scissors game built with **HTML**, **CSS**, and **JavaScript**.
 
-This project is part of **The Odin Project**. The goal was to practice JavaScript basics, DOM manipulation, and event handling in a simple yet interactive application.
+This project is part of [The Odin Project](https://www.theodinproject.com/dashboard). The goal was to practice JavaScript basics, DOM manipulation, and event handling in a simple yet interactive application.
 
 ## How it works?
 1. Player selects **rock**, **paper**, or **scissors** by clicking a button.
